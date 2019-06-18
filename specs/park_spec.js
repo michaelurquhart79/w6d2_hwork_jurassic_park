@@ -74,25 +74,31 @@ describe('Park', function() {
     park1.addDinosaur(dinosaur4);
 
     park1.removeAllOfSpecies('t-rex');
-    const actual = park1.dinoList
+    const actual = park1.dinoList;
     assert.deepStrictEqual(actual, [dinosaur2, dinosaur3]);
   });
 
   it('should be able to report the number of visitors per day', function() {
-    const actual = park2.visitorsPerDay()
-    assert.strictEqual(actual, 115)
+    const actual = park2.visitorsPerDay();
+    assert.strictEqual(actual, 115);
   });
 
   it('should be able to report the number of visitors per year', function() {
-    const actual = park2.visitorsPerYear()
-    const expected = 115 * 365
-    assert.strictEqual(actual, expected)
+    const actual = park2.visitorsPerYear();
+    const expected = 115 * 365;
+    assert.strictEqual(actual, expected);
   });
 
   it('should be able to report the total revenue per year', function () {
-    const actual = park2.revenuePerYear()
-    const expected = 115 * 365 * 8
-    assert.strictEqual(actual, expected)
+    const actual = park2.revenuePerYear();
+    const expected = 115 * 365 * 8;
+    assert.strictEqual(actual, expected);
+  });
+
+  it('should be able to provide an object for dinos diet types', function () {
+    const actual = park2.dinoDiets();
+    const expected = { 'carnivore': 3, 'herbivore': 1, 'omnivore': 0 };
+    assert.deepStrictEqual(actual, expected);
   });
 
 });

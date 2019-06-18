@@ -30,8 +30,8 @@ Park.prototype.findAllOfSpecies = function (speciesToFind) {
 };
 
 Park.prototype.removeAllOfSpecies = function (speciesToRemove) {
-  const arrayToRemain = this.dinoList.filter(dino => dino.species != speciesToRemove)
-  this.dinoList = arrayToRemain
+  const arrayToRemain = this.dinoList.filter(dino => dino.species != speciesToRemove);
+  this.dinoList = arrayToRemain;
 };
 
 Park.prototype.visitorsPerDay = function () {
@@ -43,9 +43,22 @@ Park.prototype.visitorsPerDay = function () {
 };
 
 Park.prototype.visitorsPerYear = function () {
-  return this.visitorsPerDay() * 365
+  return this.visitorsPerDay() * 365;
 }
 
 Park.prototype.revenuePerYear = function () {
-  return this.visitorsPerYear() * this.ticketPrice
+  return this.visitorsPerYear() * this.ticketPrice;
+}
+
+Park.prototype.dinoDiets = function() {
+  const dinos = this.dinoList;
+  const carniArray = dinos.filter(dino => dino.diet === 'carnivore');
+  const herbiArray = dinos.filter(dino => dino.diet === 'herbivore');
+  const omniArray = dinos.filter(dino => dino.diet === 'omnivore');
+  const dinoDietObject = {
+    carnivore: carniArray.length,
+    herbivore: herbiArray.length,
+    omnivore: omniArray.length
+  };
+  return dinoDietObject
 }
